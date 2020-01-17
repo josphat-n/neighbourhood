@@ -12,6 +12,8 @@ DEBUG = config('DEBUG', default=False, cast=bool)
 
 # Application definition
 INSTALLED_APPS = [
+    'pyuploadcare.dj',
+    'bootstrap4',
     'hood.apps.HoodConfig',
     'django.contrib.admin',
     'django.contrib.auth',
@@ -52,6 +54,10 @@ TEMPLATES = [
 WSGI_APPLICATION = 'neighbourhood.wsgi.application'
 
 
+UPLOADCARE = {
+    'pub_key': '540f9e42bf125236586b',
+    'secret': 'e89e0756c8831745163b',
+}
 # Database
 # development
 if config('MODE')=="dev":
