@@ -1,13 +1,16 @@
 from django.shortcuts import render, redirect
 from django.contrib import messages
-from django.views.generic import CreateView, DetailView
+from django.views.generic import CreateView, DetailView, ListView
 from django.contrib.auth.mixins import LoginRequiredMixin
 from .models import Post
 from .forms import UserRegisterForm
+from django.contrib.auth.decorators import login_required
 
 # Create your views here.
+@login_required(login_url='/login/')
 def home(request):
-   return render(request,'hood/home.html')
+   posts = Post.objects.all()
+   return render(request,'hood/home.html', {'posts': posts})
 
 def profile(request):
    return render(request, 'profile/profile.html')
