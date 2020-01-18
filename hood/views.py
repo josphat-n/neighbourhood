@@ -13,7 +13,7 @@ def home(request):
    return render(request,'hood/home.html', {'posts': posts})
 
 def profile(request):
-   return render(request, 'profile/profile.html')
+   return render(request, 'users/profile.html')
 
 def register(request):
    if request.method == 'POST':
