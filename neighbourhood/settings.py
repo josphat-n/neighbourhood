@@ -132,5 +132,4 @@ CRISPY_TEMPLATE_PACK = 'bootstrap4'
 
 #Login and Logout redirect pages
 LOGIN_REDIRECT_URL = '/'
-LOGOUT_REDIRECT_URL = '/'
 LOGIN_URL = 'login'

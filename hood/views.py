@@ -1,6 +1,6 @@
 from django.shortcuts import render, redirect
 from django.contrib import messages
-from django.views.generic import CreateView
+from django.views.generic import CreateView, DetailView
 from django.contrib.auth.mixins import LoginRequiredMixin
 from .models import Post
 from .forms import UserRegisterForm
@@ -24,6 +24,9 @@ def register(request):
       form = UserRegisterForm()
    return render(request, 'users/register.html', {'form': form})
 
+class PostDetailView(DetailView):
+   model = Post
+    
 class PostCreateView(LoginRequiredMixin, CreateView):
    model = Post
    fields = ['title', 'content']
