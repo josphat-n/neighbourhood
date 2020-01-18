@@ -14,6 +14,7 @@ DEBUG = config('DEBUG', default=False, cast=bool)
 INSTALLED_APPS = [
     'pyuploadcare.dj',
     'bootstrap4',
+    'crispy_forms',
     'hood.apps.HoodConfig',
     'django.contrib.admin',
     'django.contrib.auth',
@@ -127,6 +128,9 @@ STATICFILES_DIRS = [
 ]
 STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
 
+CRISPY_TEMPLATE_PACK = 'bootstrap4'
+
 #Login and Logout redirect pages
 LOGIN_REDIRECT_URL = '/'
 LOGOUT_REDIRECT_URL = '/'
+LOGIN_URL = 'login'
