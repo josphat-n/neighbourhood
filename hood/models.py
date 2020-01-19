@@ -8,7 +8,10 @@ class Hood(models.Model):
    admin = models.ForeignKey(User,on_delete=models.CASCADE, default = 1)
    name = models.CharField(max_length =30)
    location = models.CharField(max_length =30)
-   occupants_count = models.IntegerField
+   occupants_count = models.IntegerField  
+   
+   def __str__(self):
+      return self.name
 
 class Business(models.Model):
    name = models.CharField(max_length =30)
