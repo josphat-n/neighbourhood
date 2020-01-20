@@ -6,4 +6,4 @@ from .models import Hood, Business, Admin, User
 admin.site.register(Hood)
 admin.site.register(Business)
 admin.site.register(Admin)
-admin.site.register(User, UserAdmin)
+admin.site.register(User)

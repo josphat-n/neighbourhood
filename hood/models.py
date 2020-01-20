@@ -23,7 +23,6 @@ class User(AbstractUser):
    hood = models.OneToOneField(Hood, on_delete=models.CASCADE, null=True)
    email = models.CharField(max_length =30)
    
-   
       
 class Business(models.Model):
    name = models.CharField(max_length =30)
