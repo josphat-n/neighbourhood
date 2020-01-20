@@ -18,11 +18,17 @@ class Hood(models.Model):
    def __str__(self):
       return self.name
    
-   def create(self):
+   def create_hood(self):
       """
       Create a new neighbourhood to the database    
       """
       self.save()  
+      
+   def delete_hood(self):
+      """
+      Create a new neighbourhood to the database    
+      """
+      self.delete()     
    
 class User(AbstractUser):
    name = models.CharField(max_length =30)
