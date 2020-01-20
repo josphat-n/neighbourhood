@@ -18,6 +18,12 @@ class Hood(models.Model):
    def __str__(self):
       return self.name
    
+   def create(self):
+      """
+      Create a new neighbourhood to the database    
+      """
+      self.save()  
+   
 class User(AbstractUser):
    name = models.CharField(max_length =30)
    hood = models.OneToOneField(Hood, on_delete=models.CASCADE, null=True)
