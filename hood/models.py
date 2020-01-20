@@ -26,7 +26,7 @@ class Hood(models.Model):
       
    def delete_hood(self):
       """
-      Create a new neighbourhood to the database    
+      Delete a neighbourhood instance from the database    
       """
       self.delete()    
    
@@ -55,6 +55,35 @@ class Business(models.Model):
    hood = models.ForeignKey(Hood,on_delete=models.CASCADE, default = 1)
    biz_email =  models.CharField(max_length =30)
    
+   def __str__(self):
+         return self.name
+   
+   def create_business(self):
+      """
+      Create a new business to the database    
+      """
+      self.save()  
+      
+   def delete_business(self):
+      """
+      Delete a business instance from the database       
+      """
+      self.delete()    
+   
+   def update_business(self):
+      """
+      function to update some properties of the business class
+      """
+      self.business.update()   
+      
+   @classmethod
+   def find_business(business_id):
+      """
+      function to search a business by use of the hood-id
+      """
+      business = cls.objects.filter(id__contains=business_id)
+      return business
+     
 class Post(models.Model):
    title = models.CharField(max_length=100)
    content = models.TextField()
