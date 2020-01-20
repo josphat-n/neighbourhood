@@ -28,7 +28,21 @@ class Hood(models.Model):
       """
       Create a new neighbourhood to the database    
       """
-      self.delete()     
+      self.delete()    
+   
+   def update_hood(self):
+      """
+      function to update some properties of the hood class
+      """
+      self.hood.update()   
+      
+   @classmethod
+   def find_hood(hood_id):
+      """
+      function to search a hood by use of the hood-id
+      """
+      hood = cls.objects.filter(id__contains=hood_id)
+      return hood      
    
 class User(AbstractUser):
    name = models.CharField(max_length =30)
