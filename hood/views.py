@@ -16,8 +16,8 @@ def home(request):
 @login_required(login_url='/login/')
 def profile(request):
    user = request.user
-   hood = user.hood_set.first()
-   return render(request, 'users/profile.html', {'hood':hood})
+   # hood = user.hood_set.first()
+   return render(request, 'users/profile.html')
 
 def register(request):
    if request.method == 'POST':

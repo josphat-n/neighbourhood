@@ -1,10 +1,13 @@
 from django.db import models
 from django.utils import timezone
 from django.urls import reverse
+from django.contrib.auth.models import AbstractUser
 
 # Create your models here.   
 class Admin(models.Model):
    name = models.CharField(max_length =30)
+   def __str__(self):
+      return self.name
   
 class Hood(models.Model):
    admin = models.ForeignKey(Admin,on_delete=models.CASCADE)
@@ -15,10 +18,12 @@ class Hood(models.Model):
    def __str__(self):
       return self.name
    
-class User(models.Model):
+class User(AbstractUser):
    name = models.CharField(max_length =30)
-   hood = models.OneToOneField(Hood, on_delete=models.CASCADE)
+   hood = models.OneToOneField(Hood, on_delete=models.CASCADE, null=True)
    email = models.CharField(max_length =30)
+   
+   
       
 class Business(models.Model):
    name = models.CharField(max_length =30)
